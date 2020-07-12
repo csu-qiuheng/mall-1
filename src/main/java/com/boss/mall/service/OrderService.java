@@ -26,18 +26,17 @@ public class OrderService {
         return orderItemMapper.listOrderItem();
     }
 
-    public String insertProduct(int userid,int pid,int pnum) {
+    public String addProduct(int userid,int pid,int pnum) {
         Order order = new Order();
         order.setUserid(userid);
         orderMapper.addOrder(order);
-
 
         OrderItem orderItem = new OrderItem();
         orderItem.setOrderid(order.getOrderid());
         orderItem.setPid(pid);
         orderItem.setPnum(pnum);
-        orderItemMapper.addOrderItem(orderItem);
-        if((orderItemMapper.addOrderItem(orderItem)) == -1)
+        int i = orderItemMapper.addOrderItem(orderItem);
+        if(i == -1)
         {
             return "error";
         }

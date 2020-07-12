@@ -21,9 +21,9 @@ public class OrderController {
     OrderService orderService;
 
     @RequestMapping(value = "/addOrder", method = RequestMethod.POST)
-    public String addOrderToItem(int pid,int pnum)
+    public String addOrderItem(int pid,int pnum)
     {
-        return  orderService.insertProduct(1,pid,pnum);
+        return  orderService.addProduct(1,pid,pnum);
     }
 
     @RequestMapping(value = "/listOrder",method = RequestMethod.GET)
