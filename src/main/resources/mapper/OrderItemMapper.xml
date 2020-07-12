@@ -1,0 +1,22 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+<!DOCTYPE mapper PUBLIC
+        "-//mybatis.org//DTD com.example.Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.boss.mall.mapper.OrderItemMapper">
+
+    <resultMap id="result" type="com.boss.mall.entity.OrderItem">
+        <result property="orderid" column="orderid" />
+        <result property="pid" column="pid"/>
+        <result property="pnum" column="pnum"/>
+    </resultMap>
+
+    <insert id="addOrderItem" parameterType="com.boss.mall.entity.OrderItem">
+        INSERT INTO order_Item(orderid,pnum,pid)
+        VALUES (#{orderid},#{pnum},#{pid})
+    </insert>
+
+    <select id="listOrderItem" resultMap="result">
+        SELECT * FROM mall.order_item
+    </select>
+
+</mapper>
